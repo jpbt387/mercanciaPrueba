@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="col-12">
+    <button class="nav-link dropdown-toggle btn btn-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filtros
+    </button>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <button class="dropdown-item" (click)="buscar(1)">buscar por usuario</button>
+      <button class="dropdown-item" (click)="buscar(2)">buscar por nombre</button>
+    </div>
+    <input class="form-control mr-sm-2" [(ngModel)]="valorFiltro" type="search" placeholder="buscar" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="filtrar()">filtrar</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="traerMercancia()">borrar</button>
+  </div>
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Creado Por:</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of listaProductos">
+          <th>{{producto.nombre}}</th>
+          <td>{{producto.cantidad}}</td>
+          <td>{{producto.fecha | date}}</td>
+          <td>{{producto.creador}}</td>
+          <td>{{producto.fechaEditado | date}}</td>
+          <td>{{producto.editor}}</td>
+          <td>
+            <button class="btn btn-primary" *ngIf="habilitado(producto)" (click)="eliminarProducto(producto.idProducto)">eliminar</button>
+            <button class="btn btn-primary" (click)="editarProducto(producto)">modificar</button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  </div>
+</div>

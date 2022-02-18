@@ -1,0 +1,17 @@
+<div class="container">
+  <form [formGroup]="formulario">
+    <div class="col-md-6">
+      <label for="">Nombre Producto</label>
+    </div>
+    <div class="col-md-6">
+      <input type="text" placeholder="nombre" name="nombre" formControlName="nombre">
+    </div>
+    <div class="col-md-6">
+      <label for="">Cantidad Recibida</label>
+    </div>
+    <div class="col-md-6">
+      <input type="number" placeholder="cantidad" name="cantidad" formControlName="cantidad">
+    </div>
+  </form>
+  <button class="btn btn-primary" (click)="guardarProducto()" >Submit</button>
+</div>
